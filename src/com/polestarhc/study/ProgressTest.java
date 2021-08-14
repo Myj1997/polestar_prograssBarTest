@@ -31,11 +31,7 @@ public class ProgressTest implements INotification {
         buttonDecress.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                position --;
-                if ( position <= 0) {
-                    position = 0;
-                }
-                progressBar.setValue(position);
+                startDecress();
             }
         });
     }
@@ -47,6 +43,12 @@ public class ProgressTest implements INotification {
 
     }
 
+    private void startDecress(){
+        System.out.println("ProgressTest.actionPerforemd 눌림2");
+        Thread decreaseThread = new Thread(new DecreaseThread(this));
+        decreaseThread.start();
+    }
+
     @Override
     public void notificationCalled() {
         System.out.println("ProgressTest.notificationCalled");
@@ -55,5 +57,16 @@ public class ProgressTest implements INotification {
                 position = 100;
             }
             progressBar.setValue(position);
+    }
+
+    @Override
+    public void decreaseNotificationCalled() {
+        System.out.println("하락하는중");
+        position --;
+        if ( 0 > position){
+            position = 0;
+        }
+
+        progressBar.setValue(position);
     }
 }

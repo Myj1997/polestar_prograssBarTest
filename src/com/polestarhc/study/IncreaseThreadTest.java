@@ -11,10 +11,10 @@ public class IncreaseThreadTest implements Runnable{
     public void run() {
         System.out.println("IncreaseThreadTest.run");
         if (notification != null) {
-            for (int i=0; i < 1000; i++) {
+            for (int i=0; i < 100; i++) {
                 notification.notificationCalled();
                 try {
-                    Thread.sleep(100);
+                    Thread.sleep(10);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
