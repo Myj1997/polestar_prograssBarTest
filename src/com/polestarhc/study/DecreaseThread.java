@@ -12,8 +12,10 @@ public class DecreaseThread implements Runnable {
     public void run() {
         System.out.println("DecreaseThread.run");
         if(iNotification != null){
-            for(int i = 0; i < 100; i++ ){
+            for(int i = 0; i < 10; i++ ){
                 iNotification.decreaseNotificationCalled();
+                System.out.println("하락하는중 " + i);
+
                 try {
                     Thread.sleep(10);
                 } catch (InterruptedException e) {

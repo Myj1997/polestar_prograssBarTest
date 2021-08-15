@@ -51,7 +51,6 @@ public class ProgressTest implements INotification {
 
     @Override
     public void notificationCalled() {
-        System.out.println("ProgressTest.notificationCalled");
         position ++;
             if ( 100 < position) {
                 position = 100;
@@ -61,7 +60,6 @@ public class ProgressTest implements INotification {
 
     @Override
     public void decreaseNotificationCalled() {
-        System.out.println("하락하는중");
         position --;
         if ( 0 > position){
             position = 0;
